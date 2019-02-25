@@ -9,6 +9,7 @@
     <title>Consola - Eduardo</title>
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="estilos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
 
@@ -19,12 +20,12 @@
         <main class="container-fluid">
             <!-- https://www.htmlcinco.com/nuevo-elemento-de-html5-main/ -->
             <h2>Consola - Eduardo</h2>
-            <p>Bienvenido a la actividad de consola estas en el path <strong><?php echo getcwd()?></strong></p>
+            <p>Bienvenido a la actividad de consola estas en el path <strong><?php echo HOME ?></strong></p>
 
 
             <div class="row">
-            <span style="margin-left: 20px;"> MBP-de-Eduardo:~ userNameID$:</span>
-            <input class="col-xs-10 col-xs-10 col-md-3" type="text" name="input_cmd" style="margin-left:8px ;border:1px solid grey;">
+            <span style="margin-left: 20px;" id="userpos"> MBP-de-Eduardo:~ userNameID$:</span>
+            <input class="col-xs-10 col-xs-10 col-md-3" id="userpos" type="text" name="input_cmd" style="margin-left:8px ;border:1px solid grey;">
         </div>
         </main>
     </form>
