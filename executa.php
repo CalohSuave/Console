@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 			$eliminar = esborra_directori($arrEnter[2]);
 
 		}else {
-			$eliminar = "Por favor utiliza parametros";
+			$eliminar = "Por favor utiliza parametros validos";
 		}
 		break;
 	
@@ -49,12 +49,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 
 		$_SESSION['output'] = $copiar;
 			break;
+
+		case 'ls':
+			$_SESSION['output'] = llistat($arrEnter[1]);
+			break;
 		
 
 		default:
 			echo "Hola";
 			break;
 	}
+    header('Location: consola.php');
 
 }
 

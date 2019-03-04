@@ -72,7 +72,7 @@ function copia_directori($dir, $rutadesti)
 
 			foreach ($archivos as $item) {
 				if ($item != "." && $item != ".."){
-					array_push($conetendor_archivos, $rutadesti);
+					array_push($conetendor_archivos,$rutadesti);
 
 				}
 			}
