@@ -20,7 +20,7 @@
         <main class="container-fluid">
             <!-- https://www.htmlcinco.com/nuevo-elemento-de-html5-main/ -->
             <h2>Consola - Eduardo</h2>
-            <p>Bienvenido a la actividad de consola estas en el path <strong><?php echo HOME ?></strong></p>
+            <p>Bienvenido a la actividad de consola estas en el path <strong><?php echo getcwd()?></strong></p>
 
 
             <div class="row">
@@ -30,6 +30,33 @@
         </main>
     </form>
 
+
+    
+<main class="container-fluid">
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                session_start();
+                $output = Array();
+
+                if (!empty($_SESSION['output'])) {
+                    $output = $_SESSION['output'];
+                    if (is_array($_SESSION['output'])) {
+                        foreach ($output as $singleItem) {
+                            echo $singleItem . "<br>";
+                        }
+                    } else {
+                        echo $output . "<br>";
+                    }
+
+                    session_destroy();
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer class="footer mt-auto py-3" style="position: absolute;bottom: 0; align-content: center;">
     <div class="container">
