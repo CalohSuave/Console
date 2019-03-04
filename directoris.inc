@@ -85,3 +85,10 @@ function copia_directori($dir, $rutadesti)
 		return "Por favor ingresa parametro validos";
 	}
 }
+
+
+function cambio_directorio($dir){
+	chdir ('./ola2');
+	return  getcwd();
+
+}

@@ -14,5 +14,7 @@ function llistat($dir){
 			}else{
 				return "$dir no es una carpeta";
 			}
+		}else{
+			return scandir(getcwd());
 		}
 }

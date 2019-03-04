@@ -54,7 +54,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 			$_SESSION['output'] = llistat($arrEnter[1]);
 			break;
 		
-
+			case 'cd':
+			$_SESSION['output'] = cambio_directorio($arrEnter[1]);
+			break;
 		default:
 			echo "Hola";
 			break;
