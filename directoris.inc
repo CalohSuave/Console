@@ -44,7 +44,7 @@ function mou_directori($dir, $rutadesti)
 	$pwd_destino = getcwd().DIRECTORY_SEPARATOR.$rutadesti;
 
 	if ($dir != null && $rutadesti != null) {
-		if(file_exists($pwd)){
+		if(is_dir($pwd)){
 			if (rename($pwd, $pwd_destino.DIRECTORY_SEPARATOR.$dir)) {
 				return "Estamos en $rutadesti";
 			}else{
@@ -52,7 +52,7 @@ function mou_directori($dir, $rutadesti)
 			}
 
 		}else{
-			return "El path: $dir no existe";
+			return "El $dir no es un directorio, prueba con mv -f ";
 		}
 
 	}else{

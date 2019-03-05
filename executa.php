@@ -19,15 +19,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 		if ($arrEnter[1] == '-d') {
 			$eliminar = esborra_directori($arrEnter[2]);
 
+		} else if($arrEnter[1] == '-f'){
+			$eliminar = esborra_fitxer($arrEnter[2]);
 		}else {
 			$eliminar = "Por favor utiliza parametros validos";
 		}
+
+		$_SESSION['output'] = $eliminar;
+
 		break;
 	
 
 		case 'mv':
 		if ($arrEnter[1] == '-d') {
 			$cambio = mou_directori($arrEnter[2], $arrEnter[3]);
+		}else if($arrEnter[1] == '-f'){
+			$cambio = mou_fitxer($arrEnter[2], $arrEnter[3]);
+
 		}else{
 			$cambio = "Parametros no validos";
 		}
@@ -59,29 +67,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 			break;
 		
 
-
-			case 'cd':
+		case 'cd':
 			$_SESSION['output'] = cambio_directorio($arrEnter[1]);
-			break;
+		break;
 
 
-			case 'clear':
-            $_SESSION['output'] = "";
-            break;
+		case 'clear':
+            $_SESSION['output'] = " ";
+        break;
 
 
-			case 'find':
+		case 'find':
             $_SESSION['output'] = find_fitxer($arrEnter[1], $arrEnter[2]);
-            break;
+        break;
 
 
-           	case 'sha1':
+        case 'sha1':
             $_SESSION['output'] = sha1_fun($arrEnter[1]);
-            break;
+        break;
 
-            case 'md5':
-            $_SESSION['output'] = md5_fun($arrEnter[1]);
-            break;
+        case 'md5':
+        $_SESSION['output'] = md5_fun($arrEnter[1]);
+        break;
 
 
 		default:
