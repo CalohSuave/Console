@@ -75,6 +75,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
             break;
 
 
+           	case 'sha1':
+            $_SESSION['output'] = sha1_fun($arrEnter[1]);
+            break;
+
+            case 'md5':
+            $_SESSION['output'] = md5_fun($arrEnter[1]);
+            break;
+
+
 		default:
 			echo "Hola";
 			break;

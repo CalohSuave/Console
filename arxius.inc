@@ -41,3 +41,41 @@ function copia_fitxer($fitxer,$rutadesti){
 		return " Ingresa parametros validos";
 	}
 }
+
+function sha1_fun($fitxer){
+	$pwd = getcwd().DIRECTORY_SEPARATOR.$fitxer;
+
+	if ($fitxer != null) {
+	 	if (file_exists($pwd)) {
+	 		if (is_file($pwd)) {
+				return " SHA1 de $fitxer: ".sha1_file($pwd);
+	 		}else{
+	 			return "Illo que esto no e' una arshivo";
+	 		}
+	 	}else{
+	 		return "El archivo $fitxer no existe";
+	 	}
+	}else{
+		return "Por favor escribe un nombre de archivo";
+
+}
+}
+
+function md5_fun($fitxer){
+	$pwd = getcwd().DIRECTORY_SEPARATOR.$fitxer;
+
+	if ($fitxer != null) {
+	 	if (file_exists($pwd)) {
+	 		if (is_file($pwd)) {
+				return " MD5 de $fitxer: ".md5_file($pwd);
+	 		}else{
+	 			return "Illo que esto no e' una arshivo";
+	 		}
+	 	}else{
+	 		return "El archivo $fitxer no existe";
+	 	}
+	}else{
+		return "Por favor escribe un nombre de archivo";
+
+}
+}
