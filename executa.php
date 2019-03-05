@@ -43,6 +43,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 		case 'cp':
 		if ($arrEnter[1] == '-d') {
 			$copiar = copia_directori($arrEnter[2], $arrEnter[3]);
+		}else if ($arrEnter[1] == '-f') {
+			$copiar = copia_fitxer($arrEnter[2], $arrEnter[3]);
+		
 		}else{
 			$copiar = "Por favor ingresa cp carpeta y carpeta destino";
 		}
@@ -50,13 +53,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['input_cmd'])) {
 		$_SESSION['output'] = $copiar;
 			break;
 
+
 		case 'ls':
 			$_SESSION['output'] = llistat($arrEnter[1]);
 			break;
 		
+
+
 			case 'cd':
 			$_SESSION['output'] = cambio_directorio($arrEnter[1]);
 			break;
+
+
+			case 'clear':
+            $_SESSION['output'] = "";
+            break;
+
+
+			case 'find':
+            $_SESSION['output'] = find_fitxer($arrEnter[1], $arrEnter[2]);
+            break;
+
+
 		default:
 			echo "Hola";
 			break;

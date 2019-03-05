@@ -8,13 +8,13 @@ function crea_directori($dir)
 
      if(!file_exists($pwd)){
      	if(mkdir($pwd)){
-     		return "Carpeta $pwd hecha";
+     		return "Carpeta $dir hecha";
      	}else{
-     		"No se ha podido crear la carpeta $pwd";
+     		"No se ha podido crear la carpeta $dir";
      	}
 
      }else{
-     	return "Esta carpeta ya existe";
+     	return "La carpeta $dir ya existe";
      }
 }
 
@@ -25,14 +25,14 @@ function esborra_directori($dir)
 
 	if (file_exists($pwd)) {
 		if(rmdir($pwd)){
-			return "Se ha eliminado correctamente";
+			return "La carpeta $dir eliminado correctamente";
 
 		}else{
 			return "No se ha podido eliminar esta carpeta";
 		}
 		
 	}else{
-		return "La carpeta $pwd no existe";
+		return "La carpeta $dir no existe";
 	}
 
 
@@ -72,12 +72,11 @@ function copia_directori($dir, $rutadesti)
 
 			foreach ($archivos as $item) {
 				if ($item != "." && $item != ".."){
-					array_push($conetendor_archivos,$rutadesti);
+					array_push($conetendor_archivos, copia_fitxer($dir.DIRECTORY_SEPARATOR.$item,$rutadesti));
 
 				}
+						return $conetendor_archivos;
 			}
-
-			return $conetendor_archivos;
 		} else{
 			return "$dir no es un directorio valido";
 		}
@@ -88,7 +87,7 @@ function copia_directori($dir, $rutadesti)
 
 
 function cambio_directorio($dir){
-	chdir ('./ola2');
+	chdir ($dir);
 	return  getcwd();
 
 }
